@@ -1,11 +1,32 @@
+import React from 'react';
 import './App.css';
+import Count from './components/Count';
+import IsFive from './components/IsFive';
 
 function App() {
+
+  const [count1, setCount1] = React.useState(0);
+  const [count2, setCount2] = React.useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
-        
+        useMemo vs React-memo
       </header>
+
+      <h5>Счетчик 1: </h5>
+      <div className="counter">
+        <button onClick={() => setCount1(prevCount => prevCount+1)}>+</button>
+        <Count id={1} value={count1} />
+      </div>
+
+      <h5>Счетчик 2: </h5>
+      <div className="counter">
+        <button onClick={() => setCount2(prevCount => prevCount+1)}>+</button>
+        <Count id={2} value={count2} />
+        <IsFive value={count2} />
+      </div>
+
     </div>
   );
 }
